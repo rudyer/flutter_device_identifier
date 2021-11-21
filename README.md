@@ -1,5 +1,8 @@
 # flutter_device_identifier
 
+THIS IS THE VERSION OF https://pub.dev/packages/android_multiple_identifier WITH NULL SAFETY.
+Thanks @ahguerra93 for the contribution.
+
 Exclusive for Android
 A plugin that provides multiple Android unique identifiers for you to choose the one that best applies to your needs.
 This plugin is aimed for projects that need to a unique identifier for Android devices and need multiple options to test in their applications:
@@ -26,13 +29,13 @@ and Info.plist.
 
 Be sure to ask permissions first, otherwise, the app won't be able to get the IMEI code and Serial number:
 ```dart
-await DeviceIdentifier.requestPermission();
+await FlutterDeviceIdentifier.requestPermission();
 ```
 Then you can call any of the three available methods:
 ```dart
-String imei = await DeviceIdentifier.imeiCode;
-String serial = await DeviceIdentifier.serialCode;
-String androidID = await DeviceIdentifier.androidID;
+String imei = await FlutterDeviceIdentifier.imeiCode;
+String serial = await FlutterDeviceIdentifier.serialCode;
+String androidID = await FlutterDeviceIdentifier.androidID;
 ```
 Or call a map contaning the 3 values so you reduce the times you call native android:
 ```dart
@@ -46,23 +49,23 @@ String androidID = idMap["androidId"];
 ### Android Permissions
 Besides the request permission method:
 ```dart
-await DeviceIdentifier.requestPermission();
+await FlutterDeviceIdentifier.requestPermission();
 ```
 You can use methods for checking status of the permissions:
 ```dart
-bool permissionStatus = await DeviceIdentifier.checkPermission(); // true if the permission is already granted
-bool isPermissionRejected = await DeviceIdentifier.checkPermissionRationale(); // true if the user previously rejected the app
-bool setToNeverAskAgain = DeviceIdentifier.neverAskAgain; //true if the user rejected the app and set to never ask again
+bool permissionStatus = await FlutterDeviceIdentifier.checkPermission(); // true if the permission is already granted
+bool isPermissionRejected = await FlutterDeviceIdentifier.checkPermissionRationale(); // true if the user previously rejected the app
+bool setToNeverAskAgain = FlutterDeviceIdentifier.neverAskAgain; //true if the user rejected the app and set to never ask again
 ```
 For openning settings (and modifiying permissions manually):
 ```dart
-DeviceIdentifier.openSettings();
+FlutterDeviceIdentifier.openSettings();
 ```
 
 ### Check Platform Version
 Just in case you need it:
 ```dart
-platformVersion = await DeviceIdentifier.platformVersion;
+platformVersion = await FlutterDeviceIdentifier.platformVersion;
 ```
 ### iOS
 For now the iOs functionality has been disabled. The app won't crash on iOS if you add it to your `pubspec.yaml` file.
