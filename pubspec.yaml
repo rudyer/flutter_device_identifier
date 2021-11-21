@@ -1,7 +1,7 @@
 name: flutter_device_identifier
-description: A new flutter plugin project.
+description: Android device identifier, to get serial number and imei code
 version: 0.0.1
-homepage:
+homepage: https://github.com/danieloquelis/flutter_device_identifier
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
